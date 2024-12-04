@@ -1,7 +1,7 @@
 import { useState } from 'react'
-import { Command, LayoutDashboard, Plus, UserPlus, Users } from 'lucide-react'
+import { Command, Plus, UserPlus, Users } from 'lucide-react'
 
-import { DropdownMenu } from '@app/components'
+import { Button, DropdownMenu } from '@app/components'
 
 import { FormDepartament } from './form-departament'
 import { SidebarLink } from './sidebar-link'
@@ -43,11 +43,6 @@ export function Sidebar() {
         </span>
 
         <div className="space-y-1">
-          <SidebarLink href="/dashboard">
-            <LayoutDashboard size={18} />
-            Dashboard
-          </SidebarLink>
-
           <SidebarLink href="/employee">
             <Users size={18} />
             Funcionários
@@ -68,9 +63,9 @@ export function Sidebar() {
             onOpenChange={setIsDepartamentDropdownOpen}
           >
             <DropdownMenu.Trigger asChild>
-              <button className="rounded-md p-1 transition-colors hover:bg-zinc-100">
+              <Button size="icon" variant="ghost">
                 <Plus size={18} />
-              </button>
+              </Button>
             </DropdownMenu.Trigger>
             <DropdownMenu.Content className="space-y-2 px-4" side="right">
               <DropdownMenu.Label>Adicionar setor</DropdownMenu.Label>

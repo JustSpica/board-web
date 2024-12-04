@@ -1,6 +1,6 @@
 import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu'
 import React from 'react'
-import { twMerge as merge } from 'tailwind-merge'
+import { twMerge } from 'tailwind-merge'
 
 export const Root = DropdownMenuPrimitive.Root
 
@@ -14,9 +14,9 @@ export const Content = React.forwardRef<
     <DropdownMenuPrimitive.Portal>
       <DropdownMenuPrimitive.Content
         ref={ref}
-        className={merge(
+        className={twMerge(
           'z-50 min-w-80 rounded-md border border-zinc-200 bg-white p-2 shadow-md',
-          'data-[state=closed]: data-[state=closed]:animate-out data-[state=closed]:fade-out-0',
+          'data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95',
           'data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:zoom-in-95',
           'data-[side=right]:slide-in-from-left-2',
           className
@@ -35,7 +35,7 @@ export const Item = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <DropdownMenuPrimitive.Item
     ref={ref}
-    className={merge(
+    className={twMerge(
       'cursor-pointer rounded-md p-2 text-sm text-zinc-800 transition-colors',
       'hover:bg-zinc-100',
       className
@@ -51,7 +51,7 @@ export const Label = React.forwardRef<
 >(({ className, ...props }, ref) => {
   return (
     <DropdownMenuPrimitive.Label
-      className={merge('text-xs font-medium text-zinc-500', className)}
+      className={twMerge('text-xs font-medium text-zinc-500', className)}
       ref={ref}
       {...props}
     />

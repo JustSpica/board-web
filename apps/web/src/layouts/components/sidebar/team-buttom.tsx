@@ -1,6 +1,6 @@
 import React from 'react'
 import { Command, ChevronsUpDown } from 'lucide-react'
-import { twMerge as merge } from 'tailwind-merge'
+import { twMerge } from 'tailwind-merge'
 
 export const TeamButton = React.forwardRef<
   React.ElementRef<'button'>,
@@ -9,7 +9,7 @@ export const TeamButton = React.forwardRef<
   return (
     <button
       ref={ref}
-      className={merge(
+      className={twMerge(
         'relative flex w-full items-center gap-2 rounded-md p-2 transition-colors',
         'hover:bg-zinc-100 data-[state=open]:bg-zinc-100'
       )}

@@ -1,10 +1,14 @@
+import { useState } from 'react'
 import { FileUser, Plus } from 'lucide-react'
 
 import { Button, Dialog } from '@app/components'
+
 import { JobCard } from './components/job-card'
 import { CreateVacancyForm } from './components/create-vacancy-form'
 
 export function Recruitment() {
+  const [newVacancyDialog, setNewVacancyDialog] = useState(false)
+
   return (
     <section className="h-full w-full space-y-6 px-8 py-6">
       <header className="flex items-center justify-between">
@@ -21,16 +25,16 @@ export function Recruitment() {
           </div>
         </div>
 
-        <Dialog.Root>
+        <Dialog.Root open={newVacancyDialog} onOpenChange={setNewVacancyDialog}>
           <Dialog.Trigger asChild>
             <Button>
               <Plus size={18} />
               Criar nova vaga
             </Button>
           </Dialog.Trigger>
-          <Dialog.Content>
+          <Dialog.Content className="space-y-2">
             <Dialog.Title>Nova vaga</Dialog.Title>
-            <CreateVacancyForm />
+            <CreateVacancyForm onClose={setNewVacancyDialog} />
           </Dialog.Content>
         </Dialog.Root>
       </header>
