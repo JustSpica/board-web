@@ -13,26 +13,26 @@ export function JobCandidates() {
         </Button>
       </header>
 
-      <div className="relative w-full overflow-hidden">
-        <Table.Root>
-          <Table.Header>
-            <Table.Head>Nome</Table.Head>
-            <Table.Head>E-mail</Table.Head>
-            <Table.Head>Linkedin</Table.Head>
-            <Table.Head>Status</Table.Head>
-            <Table.Head>Ações</Table.Head>
-          </Table.Header>
-          <Table.Body>
-            <Table.Row>
-              <Table.Cell>teste</Table.Cell>
-              <Table.Cell>teste2</Table.Cell>
-              <Table.Cell>teste3</Table.Cell>
-              <Table.Cell>teste4</Table.Cell>
-              <Table.Cell>Ações</Table.Cell>
-            </Table.Row>
-          </Table.Body>
-        </Table.Root>
-      </div>
+      <Table.Root>
+        <Table.Header>
+          <Table.Head>Nome</Table.Head>
+          <Table.Head>E-mail</Table.Head>
+          <Table.Head>Linkedin</Table.Head>
+          <Table.Head>Status</Table.Head>
+        </Table.Header>
+        <Table.Body>
+          <Table.Row>
+            <Table.Cell>Guilherme</Table.Cell>
+            <Table.Cell>Teste123@teste.com</Table.Cell>
+            <Table.Cell>Guilherme Spica Luiz</Table.Cell>
+            <Table.Cell>
+              <span className="rounded-md bg-blue-100 px-2 py-1 text-sm text-blue-500">
+                Em andamento
+              </span>
+            </Table.Cell>
+          </Table.Row>
+        </Table.Body>
+      </Table.Root>
     </div>
   )
 }

@@ -17,31 +17,22 @@ export function JobCard({ id }: JobCardProps) {
   return (
     <section className="max-w-[500px] rounded-xl border-2 border-zinc-200 bg-white p-4">
       <div className="flex items-center justify-between text-zinc-500">
-        <h2 className="text-xl font-semibold text-zinc-800">UI/UX Designer</h2>
+        <h2 className="text-xl font-semibold text-zinc-800">
+          Software Engineer Jr
+        </h2>
         <Button size="icon" variant="ghost" onClick={redirect}>
           <ChevronRight size={18} />
         </Button>
       </div>
 
       <p className="mt-4 line-clamp-2 text-sm leading-relaxed text-zinc-500">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum
-        doloremque voluptates ad sit voluptate amet necessitatibus perferendis
-        iure vel ex temporibus, voluptatum quidem dignissimos consequuntur
-        explicabo! Voluptate vero non tempore!
+        Uma descrição simples da vaga cadastrada para apresentação.
       </p>
 
       <div className="mt-6 flex items-center gap-2">
-        <span className="flex items-center gap-1 rounded-md bg-green-200 p-2 text-sm font-medium text-green-800">
-          <span className="block h-2 w-2 rounded-full bg-green-500" />
-          Designer
-        </span>
-
-        <span className="flex items-center gap-1 rounded-md border border-zinc-200 p-2 text-sm font-medium text-zinc-500">
-          Tempo integral
-        </span>
-
-        <span className="flex items-center gap-1 rounded-md border border-zinc-200 p-2 text-sm font-medium text-zinc-500">
-          Remoto
+        <span className="flex items-center gap-1 rounded-md bg-purple-200 p-2 text-sm font-medium text-purple-800">
+          <span className="block h-2 w-2 rounded-full bg-purple-500" />
+          Developers
         </span>
       </div>
     </section>

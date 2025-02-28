@@ -1,7 +1,10 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useState } from 'react'
+import { useQuery } from '@tanstack/react-query'
 import { Command, Plus, UserPlus, Users } from 'lucide-react'
 
 import { Button, DropdownMenu } from '@app/components'
+import { api } from '@app/lib/axios'
 
 import { FormDepartament } from './form-departament'
 import { SidebarLink } from './sidebar-link'
@@ -10,6 +13,21 @@ import { TeamButton } from './team-buttom'
 export function Sidebar() {
   const [isDepartamentDropdownOpen, setIsDepartamentDropdownOpen] =
     useState(false)
+
+  const { data: departamentsData } = useQuery({
+    queryKey: ['query-departaments'],
+    queryFn: async () => {
+      const companyId = localStorage.getItem('company_id')
+
+      const { data } = await api.get('/company/departaments', {
+        params: {
+          companyId
+        }
+      })
+
+      return data
+    }
+  })
 
   return (
     <div className="h-full w-80 border-r-2 border-zinc-200 px-4 py-4">
@@ -72,6 +90,17 @@ export function Sidebar() {
               <FormDepartament onOpenChange={setIsDepartamentDropdownOpen} />
             </DropdownMenu.Content>
           </DropdownMenu.Root>
+        </div>
+
+        <div className="space-y-4 px-2">
+          {departamentsData?.departaments?.map((departament: any) => (
+            <div className="flex items-center gap-2" key={departament.id}>
+              <div
+                className={`h-3 w-3 rounded-sm bg-${departament.color}-500`}
+              />
+              <span className="text-sm text-zinc-800">{departament.name}</span>
+            </div>
+          ))}
         </div>
       </div>
     </div>

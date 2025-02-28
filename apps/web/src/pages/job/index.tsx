@@ -24,7 +24,7 @@ export function Job() {
           Voltar
         </Button>
         <h2 className="text-xl font-semibold text-zinc-800">
-          Software Engineer
+          Software Engineer Jr
         </h2>
       </header>
 

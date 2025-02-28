@@ -43,6 +43,9 @@ export function Recruitment() {
         <JobCard id="1" />
         <JobCard id="2" />
         <JobCard id="3" />
+        <JobCard id="4" />
+        <JobCard id="5" />
+        <JobCard id="6" />
       </div>
     </section>
   )

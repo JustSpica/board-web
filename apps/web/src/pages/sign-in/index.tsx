@@ -1,10 +1,28 @@
 import { useForm } from 'react-hook-form'
-import { Link } from 'wouter'
+import { Link, useLocation } from 'wouter'
 
 import { Button, Input } from '@app/components'
+import { api } from '@app/lib/axios'
+
+type CompanyAccountData = {
+  name: string
+  password: string
+}
 
 export function SignIn() {
-  const { register } = useForm()
+  const [, setLocation] = useLocation()
+  const { handleSubmit, register } = useForm<CompanyAccountData>()
+
+  async function signInCompanyAccount(formData: CompanyAccountData) {
+    const { data } = await api.post('/auth', {
+      name: formData.name,
+      password: formData.password
+    })
+
+    localStorage.setItem('company_id', data.company.id)
+
+    setLocation('/app/recruitment')
+  }
 
   return (
     <section className="flex h-screen w-full items-center bg-zinc-100">
@@ -21,7 +39,10 @@ export function SignIn() {
           </span>
         </header>
 
-        <form className="space-y-4">
+        <form
+          className="space-y-4"
+          onSubmit={handleSubmit(signInCompanyAccount)}
+        >
           <div>
             <label
               className="text-sm font-medium text-zinc-800"
@@ -29,7 +50,7 @@ export function SignIn() {
             >
               Nome da empresa
             </label>
-            <Input {...register('companyName')} />
+            <Input {...register('name')} />
           </div>
           <div>
             <label
